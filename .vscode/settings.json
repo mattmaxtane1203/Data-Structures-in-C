@@ -1,0 +1,14 @@
+{
+    "files.associations": {
+        "*.tcc": "cpp",
+        "regex": "cpp",
+        "valarray": "cpp",
+        "bit": "cpp",
+        "complex": "cpp",
+        "list": "cpp",
+        "functional": "cpp",
+        "random": "cpp",
+        "limits": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "Enabled"
+}
