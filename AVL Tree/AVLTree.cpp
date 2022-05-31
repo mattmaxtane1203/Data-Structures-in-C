@@ -235,7 +235,7 @@ Node *remove(Node *root, int data){
 // Ways to traverse
 	// In Order, Pre Order, Post Order
 
-void preOrder (Node *root){
+void inOrder (Node *root){
 
 	// If there is no data, just return
 	if(root == NULL){
@@ -243,11 +243,11 @@ void preOrder (Node *root){
 	}
 
 	// Print data
-	printf("%d %d %d\n", root->data, getHeight(root), getBalance(root));
 
 	// Go left first then right
-	preOrder(root->left);
-	preOrder(root->right);
+	inOrder(root->left);
+	printf("%d %d %d\n", root->data, getHeight(root), getBalance(root));
+	inOrder(root->right);
 }
 
 int main(){
@@ -259,10 +259,12 @@ int main(){
 	root = insert(root, 2);
 	root = insert(root, 1);
 	root = insert(root, 3);
+	root = insert(root, 5);
+	root = insert(root, 7);
 
 	root = remove(root, 3);
 
-	preOrder(root);
+	inOrder(root);
 
 	return 0;
 }
