@@ -50,6 +50,8 @@ void printHeap(){
 
         printf("%d ", heap[index]);
     }
+
+    puts("");
 }
 
 void downHeap(int index){
@@ -62,13 +64,15 @@ void downHeap(int index){
 
         if(heap[leftChild] < heap[index] || heap[rightChild] < heap[index]){
             
+            // If left child is smaller than right child, swap with parent
             if(heap[leftChild] < heap[rightChild]){
                 swap(&heap[index], &heap[leftChild]);
                 downHeap(leftChild);
-            } else{
-                swap(&heap[index], &heap[rightChild]);
-                downHeap(rightChild);
             }
+            
+            // Else, swap right child
+            swap(&heap[index], &heap[rightChild]);
+            downHeap(rightChild);
         }
     }
 }
@@ -86,6 +90,7 @@ void extractMin(){
     }
 
     else{
+        printf("Min = %d\n", heap[1]);
         heap[1] = heap[currentHeapSize];
         currentHeapSize--;
         downHeap(1);
@@ -101,6 +106,9 @@ int main(){
     insertHeap(6);
     insertHeap(5);
 
+    printHeap();
+
+    extractMin();
     printHeap();
 
     return 0;

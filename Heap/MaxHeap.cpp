@@ -57,10 +57,10 @@ void downHeap(int index){
             if(heap[leftChild] > heap[rightChild]){
                 swap(&heap[index], &heap[leftChild]);
                 downHeap(leftChild);
-            } else{
-                swap(&heap[index], &heap[rightChild]);
-                downHeap(rightChild);
             }
+            
+            swap(&heap[index], &heap[rightChild]);
+            downHeap(rightChild);
         }
     }
 }
@@ -78,6 +78,7 @@ void extractMin(){
     }
 
     else{
+        printf("Max = %d\n", heap[1]);
         heap[1] = heap[currentHeapSize];
         currentHeapSize--;
         downHeap(1);
